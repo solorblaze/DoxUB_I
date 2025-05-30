@@ -31,7 +31,7 @@ check_command() {
 
 install_pyrogram() {
     echo -e "${YELLOW}[*] Installing Pyrogram...${NC}"
-    pip3 install pyrogram
+    pip3 install pyrogram --break-system-packages
     if [ $? -ne 0 ]; then
         echo -e "${RED}Failed to install Pyrogram${NC}"
         exit 1
