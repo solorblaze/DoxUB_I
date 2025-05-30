@@ -29,6 +29,13 @@ check_command() {
     return 0
 }
 
+check_pyrogram() {
+    if ! python3 -c "import pyrogram" &> /dev/null; then
+        return 1
+    fi
+    return 0
+}
+
 install_pyrogram() {
     echo -e "${YELLOW}[*] Installing Pyrogram...${NC}"
     pip3 install pyrogram --break-system-packages
@@ -61,6 +68,12 @@ install_dependencies() {
         fi
     fi
     
+    if ! check_pyrogram; then
+        install_pyrogram
+    else
+        echo -e "${GREEN}[+] Pyrogram is already installed${NC}"
+    fi
+    
     if ! check_command git; then
         echo -e "${YELLOW}[!] git not found. Attempting to install...${NC}"
         if check_command apt-get; then
@@ -75,8 +88,7 @@ install_dependencies() {
         fi
     fi
     
-    install_pyrogram
-    echo -e "${GREEN}[+] All dependencies installed${NC}"
+    echo -e "${GREEN}[+] All dependencies checked${NC}"
 }
 
 install_program() {
@@ -127,7 +139,7 @@ main() {
     header
     echo -e "${YELLOW}This installer will perform the following actions:${NC}"
     echo "1. Check required dependencies"
-    echo "2. Install Pyrogram (Telegram library)"
+    echo "2. Install Pyrogram (Telegram library) if not present"
     echo "3. Install DoxUB to ~/.local/share/DoxUB"
     echo "4. Create executable in ~/.local/bin"
     echo ""
