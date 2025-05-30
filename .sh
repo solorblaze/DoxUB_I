@@ -9,11 +9,13 @@ NC='\033[0m'
 header() {
     clear
     echo -e "${BLUE}"
-    echo "  ____            _    _ ____  "
-    echo " |  _ \  ___  ___| | _| | _ ) "
-    echo " | | | |/ _ \/ __| |/ / | _ \ "
-    echo " | |_| | (_) \__ \   <| | |_) |"
-    echo " |____/ \___/|___/_|\_\_|____/ "
+    echo '
+    dMMMMb  .aMMMb  dMP dMP dMP dMP dMMMMb 
+   dMP VMP dMP"dMP dMK.dMP dMP dMP dMP"dMP 
+  dMP dMP dMP dMP .dMMMK" dMP dMP dMMMMK"  
+ dMP.aMP dMP.aMP dMP"AMF dMP.aMP dMP.aMF   
+dMMMMP"  VMMMP" dMP dMP  VMMMP" dMMMMP" 
+'
     echo -e "${YELLOW}=== DoxUB Installer ===${NC}"
     echo -e "${BLUE}GitHub: solorblaze/DoxUB_I${NC}"
     echo ""
